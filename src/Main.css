@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Rubik:wght@500&display=swap');
+body{
+    display:flex;
+    min-height:100vh;
+    justify-content:center;
+   
+}
+.main_container
+{
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+   
+
+}
+.search_container
+{
+   min-width: 450px;
+   min-height: 40px;
+    position: relative;
+    display: flex;
+    margin-top: 100px;
+    
+}
+.label_edit
+{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
