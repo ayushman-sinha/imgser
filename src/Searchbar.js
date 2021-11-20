@@ -2,16 +2,21 @@ import React from "react";
 import './Main.css'
 class Searchbar extends React.Component
 {
-    state={ term: ''};
+    
+   state={ term:''};
+   
     onSub=(e)=>
     {
-       e.preventDefault();
-       console.log(this.state.term);
+       e.preventDefault();    
+       this.props.onSubmit(this.state.term);   
+      // console.log(this.state.term);
     };
     
-    onInput(e)
+    onInput=(e)=>
     {
-        //console.log(e.target.value);
+        this.setState({term : e.target.value});
+       // this.setState({term : e.targe.value});
+       //console.log(e.target.value);
     }
     wasClicked()
     {
@@ -24,7 +29,7 @@ class Searchbar extends React.Component
           <div className="main_container">
               <label className="ui label label_edit">SearchMe</label>        
             <form className="ui form search_container" onSubmit={this.onSub}>
-                <input type="text" onChange={this.onInput} onClick={this.wasClicked}></input>
+                <input type="text"  onChange={e=>this.onInput(e)}  onClick={this.wasClicked}></input>
             </form>
       
        </div>
