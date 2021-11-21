@@ -1,14 +1,16 @@
 import React from 'react';
-import axios from 'axios';
+import unsplash from './unsplash';
 import Searchbar from './Searchbar';
+import ImageList from './ImageList';
 
 class App extends React.Component {
- async onSubmitSer(term)
+  state={images:[]};
+ onSubmitSer=async term=>
   {
     console.log(term);
-   const res= await axios.get('https://api.unsplash.com/search/photos?',{ 
+   const res= await unsplash.get('https://api.unsplash.com/search/photos?',{ 
       params :{ query : term},
-      headers :{ Authorization : 'Client-ID dBo2w6Xlc87IbmiOPTKCCoj3mZbUBq4gFTR0WaHT8Bk'}
+   
     });
     /*
     .then statment can be used when we are working with promises returned through axios
@@ -16,12 +18,15 @@ class App extends React.Component {
        console.log(Response);
     });
     */
-   console.log(res.data.results );
-  }
+   this.setState({images : res.data.results});
+  };
   render()
   { return (
-    <div>
-      <Searchbar onSubmit={this.onSubmitSer}></Searchbar>
+    <div className="containerBig">
+      <Searchbar onSubmit1={this.onSubmitSer}></Searchbar>
+      <ImageList images={this.state.images}/>
+      Found : {this.state.images.length} images
+      
     </div>
   )
   }

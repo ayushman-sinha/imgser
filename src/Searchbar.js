@@ -3,12 +3,13 @@ import './Main.css'
 class Searchbar extends React.Component
 {
     
-   state={ term:''};
+   state={ term:'',style :" "};
    
     onSub=(e)=>
     {
        e.preventDefault();    
-       this.props.onSubmit(this.state.term);   
+       this.props.onSubmit1(this.state.term); 
+      
       // console.log(this.state.term);
     };
     
@@ -20,6 +21,7 @@ class Searchbar extends React.Component
     }
     wasClicked()
     {
+       
         console.log('Input was Clicked');
     }
     render()
