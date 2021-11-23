@@ -9,7 +9,7 @@ class App extends React.Component {
   {
     console.log(term);
    const res= await unsplash.get('https://api.unsplash.com/search/photos?',{ 
-      params :{ query : term},
+      params :{ query : term ,per_page : 20},
    
     });
     /*
